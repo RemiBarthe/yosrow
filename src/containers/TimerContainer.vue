@@ -42,7 +42,7 @@ export default defineComponent({
     justify-content: center;
     flex-flow: row wrap;
     align-content: center;
-    gap: 40px;
+    gap: 60px;
   }
 }
 </style>
