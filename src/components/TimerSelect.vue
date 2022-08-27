@@ -1,7 +1,14 @@
 <template>
   <div class="timer-select">
-    <button class="spartan-font text-lg blue-button">Study time</button>
-    <button class="spartan-font text-lg red-button">Rest time</button>
+    <button
+      class="spartan-font text-lg blue-button"
+      @click="selectType('Study')"
+    >
+      Study time
+    </button>
+    <button class="spartan-font text-lg red-button" @click="selectType('Rest')">
+      Rest time
+    </button>
   </div>
 </template>
 
@@ -9,7 +16,12 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'TimerSelect'
+  name: 'TimerSelect',
+  methods: {
+    selectType(type: string) {
+      this.$emit('selectedType', type);
+    }
+  }
 });
 </script>
 

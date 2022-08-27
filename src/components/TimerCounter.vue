@@ -62,7 +62,7 @@ export default defineComponent({
     windowWidth: window.innerWidth as number
   }),
   computed: {
-    circleSize() {
+    circleSize(): number {
       return this.windowWidth < 500 ? 250 : 400;
     }
   }

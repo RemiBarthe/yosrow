@@ -1,8 +1,12 @@
 <template>
   <div class="timer-component">
-    <TimerCounter v-if="false" :colors="colors" :timerType="timerType" />
+    <TimerCounter
+      v-if="timerType"
+      :colors="typeColors"
+      :timerType="timerType"
+    />
 
-    <TimerSelect />
+    <TimerSelect v-else @selectedType="selectType" />
   </div>
 </template>
 
@@ -14,22 +18,30 @@ import TimerSelect from './TimerSelect.vue';
 const STUDY = 'Study';
 const REST = 'Rest';
 
+type colorsType = { primary: string; secondary: string };
+
 export default defineComponent({
   name: 'TimerComponent',
   components: { TimerCounter, TimerSelect },
   data: () => ({
-    timerType: STUDY as string,
-    colors: { primary: '' as string, secondary: '' as string }
+    timerType: '' as string
   }),
-  created() {
-    if (this.timerType === STUDY) {
-      this.colors.primary = '#5C95FF';
-      this.colors.secondary = '#B9E6FF';
-    }
+  computed: {
+    typeColors(): colorsType {
+      let colors = {} as colorsType;
 
-    if (this.timerType === REST) {
-      this.colors.primary = '#F87575';
-      this.colors.secondary = '#FFA9A3';
+      if (this.timerType === STUDY)
+        colors = { primary: '#5C95FF', secondary: '#B9E6FF' };
+
+      if (this.timerType === REST)
+        colors = { primary: '#F87575', secondary: '#FFA9A3' };
+
+      return colors;
+    }
+  },
+  methods: {
+    selectType(type: string) {
+      this.timerType = type;
     }
   }
 });
