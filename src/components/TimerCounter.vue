@@ -9,9 +9,8 @@
           23:19
         </p>
 
-        <!-- check si taille de l'écran en dessous de 420 alors on passe size a 300 -->
         <CircleProgress
-          :size="400"
+          :size="circleSize"
           :border-width="6"
           :border-bg-width="2"
           :percent="22"
@@ -52,7 +51,15 @@ import CircleProgress from 'vue3-circle-progress';
 export default defineComponent({
   name: 'TimerCounter',
   components: { CircleProgress },
-  props: { colors: { type: Object, required: true } }
+  props: { colors: { type: Object, required: true } },
+  data: () => ({
+    windowWidth: window.innerWidth as number
+  }),
+  computed: {
+    circleSize() {
+      return this.windowWidth < 500 ? 250 : 400;
+    }
+  }
 });
 </script>
 
