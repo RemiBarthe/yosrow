@@ -1,9 +1,11 @@
 <template>
-  <HeaderBar />
+  <div class="timer-container">
+    <HeaderBar />
 
-  <div class="timer-app">
-    <TimerComponent />
-    <TimerHistory />
+    <div class="timer-app">
+      <TimerComponent />
+      <TimerHistory />
+    </div>
   </div>
 </template>
 
@@ -28,12 +30,19 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.timer-app {
-  height: 100%;
+.timer-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: row wrap;
-  align-content: center;
+  flex-direction: column;
+  gap: 40px;
+  height: 100%;
+  .timer-app {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    align-content: center;
+    gap: 40px;
+  }
 }
 </style>
