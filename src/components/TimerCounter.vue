@@ -35,15 +35,31 @@
 
     <div class="timer-action">
       <img
+        v-if="isPlaying"
+        class="blue-border"
+        alt="pause button"
+        src="@/assets/images/pause.svg"
+        @click="pauseTimer"
+      />
+
+      <img
+        v-else
+        :style="[
+          durationLeft > 0
+            ? { opacity: 1, cursor: 'pointer' }
+            : { opacity: 0.5, cursor: 'not-allowed' }
+        ]"
         class="blue-border"
         alt="play button"
         src="@/assets/images/play.svg"
         @click="startTimer"
       />
+
       <img
         class="red-border"
         alt="stop button"
         src="@/assets/images/stop.svg"
+        @click="endTimer"
       />
     </div>
   </div>
@@ -62,9 +78,10 @@ export default defineComponent({
   },
   data: () => ({
     windowWidth: window.innerWidth as number,
-    selectedDuration: 20 as number,
-    durationLeft: 20 as number,
-    timerInterval: 0 as number
+    selectedDuration: 4 as number,
+    durationLeft: 4 as number,
+    timerInterval: 0 as number,
+    isPlaying: false as boolean
   }),
   computed: {
     circleSize(): number {
@@ -83,13 +100,25 @@ export default defineComponent({
   },
   methods: {
     startTimer() {
+      if (this.durationLeft <= 0) return false;
+
       clearInterval(this.timerInterval);
+      this.isPlaying = true;
 
       this.timerInterval = setInterval(() => {
         this.durationLeft--;
 
-        if (this.durationLeft <= 0) clearInterval(this.timerInterval);
+        if (this.durationLeft <= 0) this.endTimer();
       }, 1000);
+    },
+    pauseTimer() {
+      clearInterval(this.timerInterval);
+      this.isPlaying = false;
+    },
+    endTimer() {
+      clearInterval(this.timerInterval);
+      this.durationLeft = 0;
+      this.isPlaying = false;
     }
   }
 });
