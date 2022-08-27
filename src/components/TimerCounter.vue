@@ -1,5 +1,8 @@
 <template>
   <div class="timer">
+    <h2 class="spartan-font text-lg" :style="{ color: colors.primary }">
+      {{ timerType }} time
+    </h2>
     <div class="timer-information-update">
       <div class="timer-information">
         <p
@@ -51,7 +54,10 @@ import CircleProgress from 'vue3-circle-progress';
 export default defineComponent({
   name: 'TimerCounter',
   components: { CircleProgress },
-  props: { colors: { type: Object, required: true } },
+  props: {
+    colors: { type: Object, required: true },
+    timerType: { type: String, required: true }
+  },
   data: () => ({
     windowWidth: window.innerWidth as number
   }),

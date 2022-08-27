@@ -1,23 +1,22 @@
 <template>
   <div class="timer-component">
-    <h2 class="spartan-font text-lg" :style="{ color: colors.primary }">
-      Study time
-    </h2>
+    <TimerCounter v-if="false" :colors="colors" :timerType="timerType" />
 
-    <TimerCounter :colors="colors" />
+    <TimerSelect />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import TimerCounter from './TimerCounter.vue';
+import TimerSelect from './TimerSelect.vue';
 
-const STUDY = 'study';
-const REST = 'rest';
+const STUDY = 'Study';
+const REST = 'Rest';
 
 export default defineComponent({
   name: 'TimerComponent',
-  components: { TimerCounter },
+  components: { TimerCounter, TimerSelect },
   data: () => ({
     timerType: STUDY as string,
     colors: { primary: '' as string, secondary: '' as string }
