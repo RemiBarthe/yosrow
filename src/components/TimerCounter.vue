@@ -9,16 +9,17 @@
           class="spartan-font text-xxl time"
           :style="{ color: colors.primary }"
         >
-          23:19
+          {{ formattedDurationLeft }}
         </p>
 
         <CircleProgress
           :size="circleSize"
           :border-width="6"
           :border-bg-width="2"
-          :percent="22"
+          :percent="percentLeft"
           :fill-color="colors.primary"
           :empty-color="colors.secondary"
+          :transition="1000"
         />
       </div>
 
@@ -37,6 +38,7 @@
         class="blue-border"
         alt="play button"
         src="@/assets/images/play.svg"
+        @click="startTimer"
       />
       <img
         class="red-border"
@@ -59,11 +61,35 @@ export default defineComponent({
     timerType: { type: String, required: true }
   },
   data: () => ({
-    windowWidth: window.innerWidth as number
+    windowWidth: window.innerWidth as number,
+    selectedDuration: 20 as number,
+    durationLeft: 20 as number,
+    timerInterval: 0 as number
   }),
   computed: {
     circleSize(): number {
       return this.windowWidth < 500 ? 250 : 400;
+    },
+    percentLeft(): number {
+      return (this.durationLeft / this.selectedDuration) * 100;
+    },
+    formattedDurationLeft(): string {
+      const date = new Date(0);
+      date.setSeconds(this.durationLeft);
+      if (this.durationLeft >= 3600)
+        return date.toISOString().substring(11, 19);
+      else return date.toISOString().substring(14, 19);
+    }
+  },
+  methods: {
+    startTimer() {
+      clearInterval(this.timerInterval);
+
+      this.timerInterval = setInterval(() => {
+        this.durationLeft--;
+
+        if (this.durationLeft <= 0) clearInterval(this.timerInterval);
+      }, 1000);
     }
   }
 });
