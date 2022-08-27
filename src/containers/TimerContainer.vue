@@ -17,15 +17,7 @@ import TimerHistory from '../components/TimerHistory.vue';
 
 export default defineComponent({
   name: 'TimerContainer',
-  components: { HeaderBar, TimerComponent, TimerHistory },
-  data: () => ({
-    timer: 0
-  }),
-  mounted() {
-    setInterval(() => {
-      this.timer++;
-    }, 1000);
-  }
+  components: { HeaderBar, TimerComponent, TimerHistory }
 });
 </script>
 

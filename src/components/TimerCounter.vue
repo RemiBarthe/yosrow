@@ -2,16 +2,21 @@
   <div class="timer">
     <div class="timer-information-update">
       <div class="timer-information">
-        <p class="spartan-font text-xxl time">23:19</p>
+        <p
+          class="spartan-font text-xxl time"
+          :style="{ color: colors.primary }"
+        >
+          23:19
+        </p>
 
         <!-- check si taille de l'écran en dessous de 420 alors on passe size a 300 -->
         <CircleProgress
-          size="400"
-          border-width="3"
-          border-bg-width="3"
-          percent="22"
-          fill-color="#5C95FF"
-          empty-color="#B9E6FF"
+          :size="400"
+          :border-width="6"
+          :border-bg-width="2"
+          :percent="22"
+          :fill-color="colors.primary"
+          :empty-color="colors.secondary"
         />
       </div>
 
@@ -46,7 +51,8 @@ import CircleProgress from 'vue3-circle-progress';
 
 export default defineComponent({
   name: 'TimerCounter',
-  components: { CircleProgress }
+  components: { CircleProgress },
+  props: { colors: { type: Object, required: true } }
 });
 </script>
 
@@ -80,7 +86,6 @@ export default defineComponent({
       align-items: center;
       .time {
         position: absolute;
-        color: $cornflower;
         margin: 0;
       }
     }
