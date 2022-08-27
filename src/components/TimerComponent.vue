@@ -19,12 +19,13 @@ const STUDY = 'Study';
 const REST = 'Rest';
 
 type colorsType = { primary: string; secondary: string };
+type timerType = '' | 'Study' | 'Rest';
 
 export default defineComponent({
   name: 'TimerComponent',
   components: { TimerCounter, TimerSelect },
   data: () => ({
-    timerType: '' as string
+    timerType: '' as timerType
   }),
   computed: {
     typeColors(): colorsType {
@@ -40,7 +41,7 @@ export default defineComponent({
     }
   },
   methods: {
-    selectType(type: string) {
+    selectType(type: timerType) {
       this.timerType = type;
     }
   }
