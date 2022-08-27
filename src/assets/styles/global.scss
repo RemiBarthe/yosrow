@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'LeagueSpartanBold';
+  src: local('LeagueSpartan'), url(./assets/fonts/LeagueSpartan-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'LeagueSpartan';
+  src: local('LeagueSpartan'), url(./assets/fonts/LeagueSpartan-Medium.ttf) format('truetype');
+}
+
+body{
+  margin: 0;
+  
+  .spartan-font {
+    font-family: 'LeagueSpartan';
+  }
+
+  .spartan-font-bold {
+    font-family: 'LeagueSpartanBold';
+  }
+
+  .text-base {
+    font-size: 20px;
+  }
+
+  .text-lg {
+    font-size: 32px;
+  }
+
+  .text-xl {
+    font-size: 40px;
+  }
+}

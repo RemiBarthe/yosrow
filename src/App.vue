@@ -15,7 +15,12 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@import './assets/styles/global.scss';
+
 #app {
-  background-color: lightblue;
+  padding: 30px 5vw;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
 }
 </style>
