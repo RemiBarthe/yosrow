@@ -22,9 +22,11 @@ export default defineComponent({
   name: 'TimerContainer',
   components: { HeaderBar, TimerComponent, TimerHistory },
   mounted() {
-    if (this.historyStore.getTodayDate !== this.todayDate)
+    if (this.historyStore.getTodayDate !== this.todayDate) {
       this.historyStore.setTodayDate(this.todayDate);
-    // clear history
+      this.historyStore.clearRecap();
+      this.historyStore.clearTotal();
+    }
   },
   computed: {
     ...mapStores(useHistoryStore),

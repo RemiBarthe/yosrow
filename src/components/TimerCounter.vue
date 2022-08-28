@@ -107,6 +107,8 @@ import { useHistoryStore } from '@/stores/history';
 import { mapStores } from 'pinia';
 import { Recap } from '@/types/historyTypes';
 
+import alarm from '@/assets/sounds/alarm.mp3';
+
 export default defineComponent({
   name: 'TimerCounter',
   components: { CircleProgress },
@@ -119,7 +121,8 @@ export default defineComponent({
     duration: 0 as number,
     durationLeft: 0 as number,
     timerInterval: 0 as number,
-    isPlaying: false as boolean
+    isPlaying: false as boolean,
+    alarm: new Audio(alarm)
   }),
   computed: {
     ...mapStores(useHistoryStore),
@@ -149,8 +152,11 @@ export default defineComponent({
 
       this.timerInterval = setInterval(() => {
         this.durationLeft--;
-        // envoyer un son !
-        if (this.durationIsOver) this.endTimer();
+
+        if (this.durationIsOver) {
+          this.endTimer();
+          this.alarm.play();
+        }
       }, 1000);
     },
     pauseTimer() {

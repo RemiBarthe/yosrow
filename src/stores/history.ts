@@ -34,6 +34,12 @@ export const useHistoryStore = defineStore({
       this.total[type] = this.total[type]
         ? this.total[type] + duration
         : duration;
+    },
+    clearRecap() {
+      this.recaps = [] as Recap[];
+    },
+    clearTotal() {
+      this.total = {} as Total;
     }
   }
 });
