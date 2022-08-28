@@ -96,6 +96,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import CircleProgress from 'vue3-circle-progress';
+import moment from 'moment';
 
 export default defineComponent({
   name: 'TimerCounter',
@@ -119,14 +120,17 @@ export default defineComponent({
       return (this.durationLeft / this.duration) * 100;
     },
     formattedDurationLeft(): string {
-      const date = new Date(0);
-      date.setSeconds(this.durationLeft);
-      if (this.durationLeft >= 3600)
-        return date.toISOString().substring(11, 19);
-      else return date.toISOString().substring(14, 19);
+      const formattedSeconds = moment.utc(this.durationLeft * 1000);
+
+      if (this.durationLeft >= 3600) return formattedSeconds.format('HH:mm:ss');
+
+      return formattedSeconds.format('mm:ss');
     },
     durationIsOver(): boolean {
       return this.durationLeft <= 0;
+    },
+    todayDate(): string {
+      return moment(new Date()).format('DD/MM/YY');
     }
   },
   methods: {
@@ -148,6 +152,7 @@ export default defineComponent({
     endTimer() {
       clearInterval(this.timerInterval);
       // save de la duration - duration left avant de set à zero
+      // envoyer un son !
       this.duration = 0;
       this.durationLeft = 0;
       this.isPlaying = false;
