@@ -39,6 +39,28 @@
       </div>
     </div>
 
+    <div
+      class="suggested-time"
+      :class="[timerType === 'Study' ? 'blue' : 'red']"
+      v-if="durationIsOver"
+    >
+      <p class="spartan-font text-base">Suggested time</p>
+      <div class="buttons">
+        <button class="spartan-font text-base" @click="increaseTime(3600)">
+          60:00
+        </button>
+        <button class="spartan-font text-base" @click="increaseTime(2400)">
+          40:00
+        </button>
+        <button class="spartan-font text-base" @click="increaseTime(1800)">
+          30:00
+        </button>
+        <button class="spartan-font text-base" @click="increaseTime(1200)">
+          20:00
+        </button>
+      </div>
+    </div>
+
     <div class="timer-action">
       <img
         v-if="isPlaying"
@@ -102,19 +124,21 @@ export default defineComponent({
       if (this.durationLeft >= 3600)
         return date.toISOString().substring(11, 19);
       else return date.toISOString().substring(14, 19);
+    },
+    durationIsOver(): boolean {
+      return this.durationLeft <= 0;
     }
   },
   methods: {
     startTimer() {
-      if (this.durationLeft <= 0) return false;
+      if (this.durationIsOver) return false;
 
       clearInterval(this.timerInterval);
       this.isPlaying = true;
 
       this.timerInterval = setInterval(() => {
         this.durationLeft--;
-
-        if (this.durationLeft <= 0) this.endTimer();
+        if (this.durationIsOver) this.endTimer();
       }, 1000);
     },
     pauseTimer() {
@@ -136,7 +160,7 @@ export default defineComponent({
       this.duration -= value;
       this.durationLeft -= value;
 
-      if (this.durationLeft <= 0) this.endTimer();
+      if (this.durationIsOver) this.endTimer();
     }
   }
 });
@@ -179,6 +203,44 @@ export default defineComponent({
       display: flex;
       flex-direction: column;
       gap: 20px;
+    }
+  }
+  .suggested-time {
+    &.blue {
+      p {
+        color: $cornflower;
+      }
+      button {
+        background-color: $cornflower;
+        &:hover {
+          border-color: $uranian;
+        }
+      }
+    }
+    &.red {
+      p {
+        color: $coral;
+      }
+      button {
+        background-color: $coral;
+        &:hover {
+          border-color: $melon;
+        }
+      }
+    }
+    .buttons {
+      display: flex;
+      gap: 2px;
+      button {
+        text-align: center;
+        cursor: pointer;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50px;
+        transition: border-color 0.15s ease-in-out;
+        border: solid 3px white;
+        color: $white;
+      }
     }
   }
   .timer-action {
