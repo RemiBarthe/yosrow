@@ -124,6 +124,7 @@ export default defineComponent({
     endTimer() {
       clearInterval(this.timerInterval);
       // save de la duration - duration left avant de set à zero
+      this.duration = 0;
       this.durationLeft = 0;
       this.isPlaying = false;
     },
@@ -135,10 +136,7 @@ export default defineComponent({
       this.duration -= value;
       this.durationLeft -= value;
 
-      if (this.durationLeft <= 0) {
-        this.duration = 0;
-        this.durationLeft = 0;
-      }
+      if (this.durationLeft <= 0) this.endTimer();
     }
   }
 });
