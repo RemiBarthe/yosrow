@@ -14,18 +14,25 @@
         for
         {{ formatDuration(recap.for) }}
       </p>
+
+      <p v-if="!historyStore.recaps[0]" class="spartan-font text-base">
+        Let's get started
+      </p>
     </div>
 
     <div class="total">
       <h2 class="spartan-font text-lg">Today's total</h2>
-      <p class="spartan-font text-base">
+      <p v-if="historyStore.total.study" class="spartan-font text-base">
         <span class="study">Studied</span> for
         {{ formatDuration(historyStore.total.study) }}
       </p>
-      <p class="spartan-font text-base">
+      <p v-else class="spartan-font text-base">You should work you know ?</p>
+
+      <p v-if="historyStore.total.rest" class="spartan-font text-base">
         <span class="rest">Rested</span> for
         {{ formatDuration(historyStore.total.rest) }}
       </p>
+      <p v-else class="spartan-font text-base">You may need a break !</p>
     </div>
   </div>
 </template>
