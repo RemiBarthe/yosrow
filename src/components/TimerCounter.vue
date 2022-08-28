@@ -24,11 +24,17 @@
       </div>
 
       <div class="timer-update">
-        <img class="blue-border" alt="up button" src="@/assets/images/up.svg" />
+        <img
+          class="blue-border"
+          alt="up button"
+          src="@/assets/images/up.svg"
+          @click="increaseTime(300)"
+        />
         <img
           class="red-border"
           alt="down button"
           src="@/assets/images/down.svg"
+          @click="decreaseTime(300)"
         />
       </div>
     </div>
@@ -78,8 +84,8 @@ export default defineComponent({
   },
   data: () => ({
     windowWidth: window.innerWidth as number,
-    selectedDuration: 4 as number,
-    durationLeft: 4 as number,
+    duration: 0 as number,
+    durationLeft: 0 as number,
     timerInterval: 0 as number,
     isPlaying: false as boolean
   }),
@@ -88,7 +94,7 @@ export default defineComponent({
       return this.windowWidth < 500 ? 250 : 400;
     },
     percentLeft(): number {
-      return (this.durationLeft / this.selectedDuration) * 100;
+      return (this.durationLeft / this.duration) * 100;
     },
     formattedDurationLeft(): string {
       const date = new Date(0);
@@ -117,8 +123,22 @@ export default defineComponent({
     },
     endTimer() {
       clearInterval(this.timerInterval);
+      // save de la duration - duration left avant de set à zero
       this.durationLeft = 0;
       this.isPlaying = false;
+    },
+    increaseTime(value: number) {
+      this.duration += value;
+      this.durationLeft += value;
+    },
+    decreaseTime(value: number) {
+      this.duration -= value;
+      this.durationLeft -= value;
+
+      if (this.durationLeft <= 0) {
+        this.duration = 0;
+        this.durationLeft = 0;
+      }
     }
   }
 });
