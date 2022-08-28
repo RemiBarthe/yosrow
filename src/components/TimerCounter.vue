@@ -145,7 +145,7 @@ export default defineComponent({
         this.durationLeft--;
         // envoyer un son !
         if (this.durationIsOver) this.endTimer();
-      }, 1);
+      }, 1000);
     },
     pauseTimer() {
       clearInterval(this.timerInterval);
