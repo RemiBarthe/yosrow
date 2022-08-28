@@ -12,12 +12,26 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import HeaderBar from '@/components/HeaderBar.vue';
-import TimerComponent from '../components/TimerComponent.vue';
-import TimerHistory from '../components/TimerHistory.vue';
+import TimerComponent from '@/components/TimerComponent.vue';
+import TimerHistory from '@/components/TimerHistory.vue';
+import { useHistoryStore } from '@/stores/history';
+import { mapStores } from 'pinia';
+import moment from 'moment';
 
 export default defineComponent({
   name: 'TimerContainer',
-  components: { HeaderBar, TimerComponent, TimerHistory }
+  components: { HeaderBar, TimerComponent, TimerHistory },
+  mounted() {
+    if (this.historyStore.getTodayDate !== this.todayDate)
+      this.historyStore.setTodayDate(this.todayDate);
+    // clear history
+  },
+  computed: {
+    ...mapStores(useHistoryStore),
+    todayDate(): string {
+      return moment(new Date()).format('DD/MM/YY');
+    }
+  }
 });
 </script>
 

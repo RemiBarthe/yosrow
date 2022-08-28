@@ -41,7 +41,7 @@
 
     <div
       class="suggested-time"
-      :class="[timerType === 'Study' ? 'blue' : 'red']"
+      :class="[timerType === 'study' ? 'blue' : 'red']"
       v-if="durationIsOver"
     >
       <p class="spartan-font text-base">Suggested time</p>
@@ -97,6 +97,9 @@
 import { defineComponent } from 'vue';
 import CircleProgress from 'vue3-circle-progress';
 import moment from 'moment';
+import { useHistoryStore } from '@/stores/history';
+import { mapStores } from 'pinia';
+import { Recap } from '@/types/historyTypes';
 
 export default defineComponent({
   name: 'TimerCounter',
@@ -113,6 +116,7 @@ export default defineComponent({
     isPlaying: false as boolean
   }),
   computed: {
+    ...mapStores(useHistoryStore),
     circleSize(): number {
       return this.windowWidth < 500 ? 250 : 400;
     },
@@ -128,9 +132,6 @@ export default defineComponent({
     },
     durationIsOver(): boolean {
       return this.durationLeft <= 0;
-    },
-    todayDate(): string {
-      return moment(new Date()).format('DD/MM/YY');
     }
   },
   methods: {
@@ -142,8 +143,9 @@ export default defineComponent({
 
       this.timerInterval = setInterval(() => {
         this.durationLeft--;
+        // envoyer un son !
         if (this.durationIsOver) this.endTimer();
-      }, 1000);
+      }, 1);
     },
     pauseTimer() {
       clearInterval(this.timerInterval);
@@ -151,11 +153,17 @@ export default defineComponent({
     },
     endTimer() {
       clearInterval(this.timerInterval);
-      // save de la duration - duration left avant de set à zero
-      // envoyer un son !
+
+      const duration = this.duration - this.durationLeft;
+
       this.duration = 0;
       this.durationLeft = 0;
       this.isPlaying = false;
+
+      if (duration < 60) return false;
+
+      this.saveRecap(duration);
+      this.saveTotal(duration);
     },
     increaseTime(value: number) {
       this.duration += value;
@@ -166,6 +174,18 @@ export default defineComponent({
       this.durationLeft -= value;
 
       if (this.durationIsOver) this.endTimer();
+    },
+    saveRecap(duration) {
+      const recap = {
+        at: new Date(),
+        for: duration,
+        type: this.timerType
+      } as Recap;
+
+      this.historyStore.addRecap(recap);
+    },
+    saveTotal(duration) {
+      this.historyStore.addToTotal(duration, this.timerType);
     }
   }
 });
@@ -177,6 +197,9 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  h2::first-letter {
+    text-transform: capitalize;
+  }
   img {
     width: 60px;
     border-radius: 60px;

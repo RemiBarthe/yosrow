@@ -15,11 +15,11 @@ import { defineComponent } from 'vue';
 import TimerCounter from './TimerCounter.vue';
 import TimerSelect from './TimerSelect.vue';
 
-const STUDY = 'Study';
-const REST = 'Rest';
+const STUDY = 'study';
+const REST = 'rest';
 
 type colorsType = { primary: string; secondary: string };
-type timerType = '' | 'Study' | 'Rest';
+type timerType = '' | 'study' | 'rest';
 
 export default defineComponent({
   name: 'TimerComponent',

@@ -2,11 +2,11 @@
   <div class="timer-select">
     <button
       class="spartan-font text-lg blue-button"
-      @click="selectType('Study')"
+      @click="selectType('study')"
     >
       Study time
     </button>
-    <button class="spartan-font text-lg red-button" @click="selectType('Rest')">
+    <button class="spartan-font text-lg red-button" @click="selectType('rest')">
       Rest time
     </button>
   </div>
