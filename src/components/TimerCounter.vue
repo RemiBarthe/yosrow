@@ -1,5 +1,11 @@
 <template>
   <div class="timer">
+    <div class="back-button">
+      <button class="spartan-font text-base" @click="returnToSelection">
+        <img alt="picto back" src="@/assets/images/back.svg" />Return to
+        selection history
+      </button>
+    </div>
     <h2 class="spartan-font text-lg" :style="{ color: colors.primary }">
       {{ timerType }} time
     </h2>
@@ -25,13 +31,13 @@
 
       <div class="timer-update">
         <img
-          class="blue-border"
+          class="blue-border img-button"
           alt="up button"
           src="@/assets/images/up.svg"
           @click="increaseTime(300)"
         />
         <img
-          class="red-border"
+          class="red-border img-button"
           alt="down button"
           src="@/assets/images/down.svg"
           @click="decreaseTime(300)"
@@ -64,7 +70,7 @@
     <div class="timer-action">
       <img
         v-if="isPlaying"
-        class="blue-border"
+        class="blue-border img-button"
         alt="pause button"
         src="@/assets/images/pause.svg"
         @click="pauseTimer"
@@ -77,14 +83,14 @@
             ? { opacity: 1, cursor: 'pointer' }
             : { opacity: 0.5, cursor: 'not-allowed' }
         ]"
-        class="blue-border"
+        class="blue-border img-button"
         alt="play button"
         src="@/assets/images/play.svg"
         @click="startTimer"
       />
 
       <img
-        class="red-border"
+        class="red-border img-button"
         alt="stop button"
         src="@/assets/images/stop.svg"
         @click="endTimer"
@@ -186,6 +192,10 @@ export default defineComponent({
     },
     saveTotal(duration) {
       this.historyStore.addToTotal(duration, this.timerType);
+    },
+    returnToSelection() {
+      this.endTimer();
+      this.$emit('selectedType', '');
     }
   }
 });
@@ -193,14 +203,40 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .timer {
+  .back-button {
+    width: 100%;
+    button {
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      color: $taupe;
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      border-radius: 50px;
+      transition: 0.15s ease-in-out;
+
+      img {
+        width: 20px;
+        margin-right: 8px;
+      }
+
+      &:hover {
+        background-color: #eee;
+      }
+    }
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  h2::first-letter {
-    text-transform: capitalize;
+  h2 {
+    margin-top: 0;
+    &::first-letter {
+      text-transform: capitalize;
+    }
   }
-  img {
+  img.img-button {
     width: 60px;
     border-radius: 60px;
     -webkit-user-drag: none;

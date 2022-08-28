@@ -4,6 +4,7 @@
       v-if="timerType"
       :colors="typeColors"
       :timerType="timerType"
+      @selectedType="selectType"
     />
 
     <TimerSelect v-else @selectedType="selectType" />
