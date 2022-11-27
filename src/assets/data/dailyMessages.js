@@ -1,6 +1,6 @@
 export default {
   '27/11/22': `Bonjour, madame Yosr, j'éspère que vous allez bien. Bon courage pour cette fin de journée ! `,
-  '28/11/22': `Hey bien réveillée ? Grosse journée qui se prépare ! Je suis l'IA (Intelligence Artificielle) de Yosrow. J'ai été développé pour vous assister dans vos révisions. Tous les jours vous aurez un message personnalisé de ma part. A demain et bonne révision !`,
+  '28/11/22': `Hey bien réveillée ? Grosse journée qui se prépare ! Je suis l'IA (Intelligence Artificielle) de Yosrow. J'ai été développé pour vous assister dans vos révisions. Tous les jours vous aurez un message personnalisé de ma part. A demain pour un autre message et bonne révision !`,
   '29/11/22': `Bonjour Yosr, je connais de nombreuses choses à propos de vous. Mon créateur m'a conçu spécialement pour vous. Vous êtes une jeune femme algérienne, en faculté de pharmacologie. Oui. mon créateur m'a apprit l'humour.`,
   '30/11/22': `Bonjour bonjour humaine, nous sommes le dernier jour du mois de novembre. Mon algorithme détecte que vous avez une capacité d'apprentissage supérieure à mon créateur .. C'est impressionnant. Savez-vous que vous comptez beaucoup pour lui ?`,
   '01/12/22': `Bonjour, mon algorithme détecte que vous avez besoin d'un fun fact .. Fun fact : Savez-vous que les pingouins n’ont qu’un partenaire dans leur vie et font leur « demande en mariage » en offrant un caillou ? Vous êtes prévenue maintenant si mon créateur vous offre un caillou prochainement.`,
@@ -8,7 +8,7 @@ export default {
   '03/12/22': `Bonjour être Yosr, savez-vous comment fonctionne mon algorithme ? Grâce à l'amour de mon créateur envers vous ! Attention à ne pas être trop pénible sinon je vais male fonctioné conpri ? Je rigole, mes capteurs détectent une dose d'amour supérieur à la moyenne (5.5/10). Vous avez beaucoup de chance eheh.`,
   '04/12/22': `Salam, labes ? Oui je parle aussi arabe oui oui. Fun fact du jour : Il est possible de se casser une côte en éternuant trop fort .. Prévenez mon créateur et le grand Ibra ! On ne veut pas qu'ils se cassent une côte !!`,
   '05/12/22': `Bonjour, vous allez bien ? Si oui dites le à mon créateur ! Il aime quand vous lui envoyez des messages donc faites le !! Je capte son activité cérébrale en ce moment et je peux vous dire que vous prenez 97% de place. Le reste étant pour ses amis .. Désolé.`,
-  '06/12/22': `hello`,
+  '06/12/22': `Bonjour, une belle journée commence. J'éspère que mon créateur est gentil avec vous. Vous comptez beaucoup pour lui. Voici un fun fact qu'il souhaite partager avec vous : Le coeur d'une crevette se trouve dans sa tête. Intéressant non ? Bonne révision et à demain pour un autre message !`,
   '07/12/22': `hello`,
   '08/12/22': `hello`,
   '09/12/22': `hello`,
