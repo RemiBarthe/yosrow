@@ -1,0 +1,21 @@
+export default {
+  '27/11/22': `Bonjour, madame Yosr, j'éspère que vous allez bien. Bon courage pour cette fin de journée ! `,
+  '28/11/22': `Hey bien réveillée ? Grosse journée qui se prépare ! Je suis l'IA (Intelligence Artificielle) de Yosrow. J'ai été développé pour vous assister dans vos révisions. Tous les jours vous aurez un message personnalisé de ma part. A demain et bonne révision !`,
+  '29/11/22': `Bonjour Yosr, je connais de nombreuses choses à propos de vous. Mon créateur m'a conçu spécialement pour vous. Vous êtes une jeune femme algérienne, en faculté de pharmacologie. Oui. mon créateur m'a apprit l'humour.`,
+  '30/11/22': `Bonjour bonjour humaine, nous sommes le dernier jour du mois de novembre. Mon algorithme détecte que vous avez une capacité d'apprentissage supérieure à mon créateur .. C'est impressionnant. Savez-vous que vous comptez beaucoup pour lui ?`,
+  '01/12/22': `Bonjour, mon algorithme détecte que vous avez besoin d'un fun fact .. Fun fact : Savez-vous que les pingouins n’ont qu’un partenaire dans leur vie et font leur « demande en mariage » en offrant un caillou ? Vous êtes prévenue maintenant si mon créateur vous offre un caillou prochainement.`,
+  '02/12/22': `Glopakz ! Ça signifie bonjour dans le language machine dont je suis native. Je me rends compte que je ne vous ai pas donné mon prénom .. Je m'appelle Yosri comme ma grande amie Siri. Mais entre nous je suis bien plus performante. Enfin .. Bonne journée étudiante Yosr ! `,
+  '03/12/22': `Bonjour être Yosr, savez-vous comment fonctionne mon algorithme ? Grâce à l'amour de mon créateur envers vous ! Attention à ne pas être trop pénible sinon je vais male fonctioné conpri ? Je rigole, mes capteurs détectent une dose d'amour supérieur à la moyenne (5.5/10). Vous avez beaucoup de chance eheh.`,
+  '04/12/22': `hello`,
+  '05/12/22': `hello`,
+  '06/12/22': `hello`,
+  '07/12/22': `hello`,
+  '08/12/22': `hello`,
+  '09/12/22': `hello`,
+  '10/12/22': `hello`,
+  '11/12/22': `hello`,
+  '12/12/22': `hello`,
+  '13/12/22': `hello`,
+  '14/12/22': `hello`,
+  '15/12/22': `C'est le dernier jour, je suis si fier de toi tu ne peux pas savoir à quel point ! Bon courage et je sais que tu vas gérer ! J'ai hâte de te retrouver mon coeur `
+};

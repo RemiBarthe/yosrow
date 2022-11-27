@@ -7,7 +7,8 @@ export const useHistoryStore = defineStore({
   state: () => ({
     todayDate: useStorage('todayDate', '' as string),
     recaps: useStorage('recaps', [] as Recap[]),
-    total: useStorage('total', {} as Total)
+    total: useStorage('total', {} as Total),
+    messageRead: useStorage('messageRead', false as boolean)
   }),
   getters: {
     getTodayDate(): string {
@@ -18,6 +19,9 @@ export const useHistoryStore = defineStore({
     },
     getTotal(): Total {
       return this.total;
+    },
+    getMessageRead(): boolean {
+      return this.messageRead;
     }
   },
   actions: {
@@ -40,6 +44,9 @@ export const useHistoryStore = defineStore({
     },
     clearTotal() {
       this.total = {} as Total;
+    },
+    setMessageRead(isRead: boolean) {
+      this.messageRead = isRead;
     }
   }
 });
