@@ -12,10 +12,10 @@ export default {
   '07/12/22': `Glopakz, dans 5 mois, ça sera l'anniversaire de mon créateur .. 27 ans c'est encore un jeune homme n'est-ce pas ? Il serait temps de déjà penser un cadeau à lui faire. Il aimerait bien une mercedes si jamais vous n'avez pas d'idée.`,
   '08/12/22': `Bonjour étudiante, je vous propose de commencer cette journée en musique. Grâce à mon algorithme, j'ai trouvé une musique qui correspond à votre mood actuel: Something In The Way - Violet Orlandi. Si elle vous plait, prévenez mon créateur que son IA chérie fonctionne parfaitement.`,
   '09/12/22': `Bonjour, ce soir c'est le week-end ! Mon créateur est super content !! Je vois que cette nouvelle ne vous affecte pas trop .. Ne vous en faites pas, mon créateur aura certainement une surprise pour vous.`,
-  '10/12/22': `hello`,
-  '11/12/22': `hello`,
-  '12/12/22': `hello`,
-  '13/12/22': `hello`,
-  '14/12/22': `hello`,
-  '15/12/22': `C'est le dernier jour, je suis si fier de toi tu ne peux pas savoir à quel point ! Bon courage et je sais que tu vas gérer ! J'ai hâte de te retrouver mon coeur `
+  '10/12/22': `Hello, nous sommes samedi. Je vois dans l'agenda de mon créateur qu'il a prévu de voir ses amis l'aprem. Il ne va pas rentrer tard ne vous en faites pas ! Ça n'empêche qu'il vous aime très fort et qu'il vous est reconnaissant pour votre aide dans sa recherche de logement.`,
+  '11/12/22': `Bonjour Yosr, ceci est un message de Rémi. Ton copain. J'éspère que tu vas bien, que tu vas passer un beau dimanche. Je vais surement voir Valentin. il s'est proposé pour nettoyer la voiture. C'est vraiment gentil de lui. J'ai qu'un hâte c'est que cette semaine se termine et qu'on soit ensemble. Bisous.`,
+  '12/12/22': `Bonjour ma chérie. Journée qui va être longue pour moi. Je vais prendre la route, pas trop tard j'éspère, en direction de bruxelles. Si tu as du temps pour m'appeler par moment ça me fera super plaisir ! Il faut que j'en profite. C'est la dernière fois que je conduis la voiture ! Bonne journée mon coeur.`,
+  '13/12/22': `Hello hello, bon c'est mon dernier jour en présentiel à la rtbf. J'éspère ne pas rentrer trop tard pour pouvoir discuter avec toi ! Tu me manques fort et on se rapproche de notre rencontre ! Je suis trop impatient !! `,
+  '14/12/22': `Bonjour. Premier jour, je ne sais pas si tu vas lire le message le matin. Je l'éspère cependant. Je suis de tout coeur avec toi, tu es en or. Bientôt cette période sombre sera dernière nous. Courage et à très vite !`,
+  '15/12/22': `C'est le dernier jour, je suis si fier de toi tu ne peux pas savoir à quel point ! Bon courage et je sais que tu vas gérer ! J'ai hâte de te retrouver mon coeur. Tu es la meilleure  !!!!`
 };
